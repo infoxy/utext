@@ -4,12 +4,12 @@ Tiny set of PHP text utility classes.
 
 Class list (all classes placed in `\infoxy\utext namespace`):
 
-  - `PlainText`: implements plain text filter and corresponded utilities.
+  - [`PlainText`](#plaintext): implements plain text filter and corresponded utilities.
   - IdnaURL: (NOT RELEASED YET) International domain names normalization and humanization class.
   - LiteText: (NOT RELEASED YET) DOM normalizer to simplified subset of HTML.
 
 
-## Purpose and intro
+## Purposes and intro
 
 All editors, copywriters, users have different skills in html and unicode. Somebody type text in notepads, anothers -- in word processors or in some advanced publishing platforms, all can made copy-paste from foreign sources and so on.
 
@@ -23,7 +23,7 @@ As result in real life: many pieces of simple utf-8 text (in site's database for
   - with special dashes, hyphens or other symbols that can be unreleased in the used fonts.
 
 This makes pieces of text harder to search and ugly to look. PlainText filter can be used to transform plain text in some more normalized and clean form (based on specified options) and also provide some additional services. 
-See `PlainText` section for details.
+See [PlainText](#plaintext) section for details.
 
 
 ## PlainText
