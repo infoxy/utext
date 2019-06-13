@@ -2,6 +2,8 @@
 
 Tiny set of PHP text utility classes.
 
+  - [Purposes and intro](#purposes-and-intro)
+
 Class list (all classes placed in `\infoxy\utext namespace`):
 
   - [PlainFilter](#plainfilter): Plain text filter and corresponded utilities.
@@ -53,7 +55,7 @@ There are list of filter options in "logical pipeline" order:
 **filter_utf8**
 Bypass only correct utf8 chars, strip out any invalid byte sequences.
 
-Note: there exists static method `PlainText::filter_utf8($s)` that can be used explicitly.
+Note: there exists static method `PlainFilter::filter_utf8($s)` that can be used explicitly.
 
 **newline_tags**
 Insert `\r\n` before every `<`. Useful with *strip_tags* to produce non-word-jouned plain text from html or xml. For example: `"<em>yellow</em><b>green</b>"` will lead to `"yellow green"` instead of `"yellowgreen"`.
