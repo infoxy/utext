@@ -2,7 +2,7 @@
 
 namespace infoxy\utext;
 
-class PlainText {
+class PlainFilter {
 
     protected $quotes;  // lang => [ open => '', close => '' ]
     protected $lang_id; // current language id ('en', 'ru', 'de', 'fr')
