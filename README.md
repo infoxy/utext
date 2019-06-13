@@ -114,7 +114,7 @@ A bit ugly yet bulletproof solution agains html special chars. Replace:
 Note: Fullwidth chars (like fullwidth ampersand) are not widely supported by fonts, so we do not use it as replacements.
 
 **simplify_spaces**
-Simplify spaces. Replace nbsp and spations with simple spaces.
+Simplify spaces. Replace whitespaces, u+A0 (nbsp), u+2000 to u+200A (fixed width spaces), u+202F (narrow nbsp), u+205F (medium math space) with simple spaces.
 
 **collapse_spaces**
 Replace sequence of whitespaces with single space.
