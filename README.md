@@ -4,8 +4,8 @@ Tiny set of PHP text utility classes.
 
 Class list (all classes placed in `\infoxy\utext namespace`):
 
-  - [`PlainFilter`](#plainfilter): implements plain text filter and corresponded utilities.
-  - [IdnaURL](#idnaurl): (NOT RELEASED YET) International domain names normalization and humanization class.
+  - [PlainFilter](#plainfilter): Plain text filter and corresponded utilities.
+  - [IdnaURL](#idnaurl): International domain names normalization and humanization class.
   - HtmliteFilter: (NOT RELEASED YET) DOM normalizer to simplified subset of HTML.
 
 First two classes can be used as standalone, and latter based on its.
