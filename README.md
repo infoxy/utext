@@ -4,10 +4,10 @@ Tiny set of PHP text utility classes.
 
   - [Purposes and intro](#purposes-and-intro)
   
-Requirements: 
+**Requirements:** 
   - PHP intl extension or polyfills for [Normalizer class](https://www.php.net/manual/en/class.normalizer.php) and [idna functions](https://www.php.net/manual/en/ref.intl.idn.php).
 
-Class list (all classes placed in `\infoxy\utext namespace`):
+**Class list (all classes placed in `\infoxy\utext namespace`):**
 
   - [PlainFilter](#plainfilter): Plain text filter and corresponded utilities.
   - [IdnaURL](#idnaurl): International domain names normalization and humanization class.
