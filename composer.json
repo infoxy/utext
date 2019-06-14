@@ -1,0 +1,22 @@
+{
+    "name": "infoxy/utext",
+    "description": "Tiny set of PHP text utility classes.",
+    "authors": [
+        {
+            "name": "Nikita Shishatsky",
+            "email": "shishatsky@yandex.ru"
+        }
+    ],
+    "license": "MIT",
+    "keywords": ["Drupal", "UText"],
+    "homepage": "https://github.com/infoxy/utext",
+    "require" : {
+        "php" : ">=5.5.0"
+    },
+    "autoload": {
+        "psr-4": {"infoxy\\utext\\": "src"}
+    },
+    "require-dev": {
+        "php" : ">=5.5.0"
+    }
+}
