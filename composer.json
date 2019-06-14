@@ -8,7 +8,7 @@
         }
     ],
     "license": "MIT",
-    "keywords": ["Drupal", "UText"],
+    "keywords": ["Drupal"],
     "homepage": "https://github.com/infoxy/utext",
     "require" : {
         "php" : ">=5.5.0"
