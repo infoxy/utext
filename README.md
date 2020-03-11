@@ -122,6 +122,11 @@ Simplify spaces. Replace whitespaces, u+A0 (nbsp), u+2000 to u+200A (fixed width
 **collapse_spaces**
 Replace sequence of whitespaces with single space.
 
+**zebra_spaces**
+Replace pair of spaces with nbsp+space.
+
+Note: collapse_spaces have precedence over zebra_spaces by its logics.
+
 **trim**
 Trim leading and trailing whitespaces.
 
