@@ -23,6 +23,7 @@ class PlainFilter {
     protected $use_strip_tags;
     protected $use_decode;
     protected $use_lang_quotes;
+    protected $use_zebra_spaces;
     protected $use_normalizer;
     public function __construct() {
         $this->quotes = [
@@ -98,6 +99,7 @@ class PlainFilter {
             $this->use_strip_tags =
             $this->use_decode =
             $this->use_lang_quotes =
+            $this->use_zebra_spaces =
             $this->use_normalizer = FALSE;
             return $this;
         }
@@ -107,6 +109,7 @@ class PlainFilter {
         $this->use_strip_tags = !empty($opt['strip_tags']);
         $this->use_decode = !empty($opt['decode_entities']);
         $this->use_lang_quotes = !empty($opt['lang_quotes']);
+        $this->use_zebra_spaces = (!empty($opt['zebra_spaces']) && empty($opt['collapse_spaces']));
         $this->use_normalizer = !empty($opt['normalize']);
         // chars and patterns replacement
         $repl = $pat = [];
@@ -214,6 +217,7 @@ class PlainFilter {
         if ($this->use_lang_quotes) $s = $this->filter_quotes($s);
         if (!empty($this->pat)) $s = str_replace($this->pat, $this->repl, $s);
         if (!empty($this->spaces)) $s = preg_replace($this->spaces, ' ', $s);
+        if (!empty($this->use_zebra_spaces)) $s = str_replace('  ', "\xC2\xA0 ", $s);
         if (!empty($this->trims)) $s = trim($s, $this->trims);
         if ($this->use_normalizer && !empty($this->norm_form))
             $s = \Normalizer::normalize($s, 
