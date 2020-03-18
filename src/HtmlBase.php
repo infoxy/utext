@@ -102,8 +102,8 @@ class HtmlBase {
      * Replace element with specified tag and reattach children to it.
      *   id, class, lang, dir attributes are also copied to new element.
      * $e: DOMElement to replace
-     * $tag: (string) tag to replace
-     * Note: classes copied as is
+     * $tag: (string) new tag
+     * Note: attributes copied as is
      * Return: newly created DOMElement
      */
     static public function tagReplace($e, $tag) 
