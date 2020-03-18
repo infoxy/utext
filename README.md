@@ -10,9 +10,8 @@ Tiny set of PHP text utility classes.
 **Class list (all classes placed in `\infoxy\utext namespace`):**
 
   - [PlainFilter](#plainfilter): Plain text filter and corresponded utilities.
-  - [HtmlBase](#htmlbase): Collection of static functions for DOMDocument manipulation.
+  - [HtmlBase](#htmlbase): Collection of static functions for DOMDocument manipulations.
   - [IdnaURL](#idnaurl): International domain names normalization and humanization class.
-  - HtmliteFilter: (NOT RELEASED YET) DOM normalizer to simplified subset of HTML.
 
 First two classes can be used as standalone, and latter based on its.
 
@@ -174,7 +173,10 @@ $prepared_string = PlainFilter::escape_filter($input_string, $opt);
 
 ## HtmlBase
 Collection of static functions for DOMDocument manipulation. So you do not need to create HtmlBase objects to use methods.
+
 Note: `toText()` and `toDom()` is focused on import/export in-body html tags, not for full documents with embedded scripts, styles and CDATA sections.
+
+### String to DOM and back conversions
 
 **HtmlBase::toDom($s)**
 Create HTML DOMDocument from string $s, that defines body content for created document.
@@ -184,11 +186,32 @@ Return DOMElement body for created document.
 Export content of DOMElement $e into the string.
 Return html as string.
 
+### Class checking
+
 **HtmlBase::classCheck($s)**
 Check then string $s is acceptable as class list. 
 In current version it means that $s contain mixture of alphanumerics, '-', underscore and space.
 Return TRUE if check passed or FALSE in other case.
 
+**HtmlBase::classArray($s)**
+Explode string $s to class names.
+Return array of string (or empty array if no classes).
+
+**HtmlBase::classPat($classes)**
+Generate pattern to match against specified classes.
+$classes: array of class names or string of class names.
+
+#### Usage example
+
+```
+$pat = HtmlBase::classPat('class1 class2 class3');
+foreach ($nodes as $n) {
+  if ($n->hasAttribute('class') && preg_match($pat, $n->getAttribute('class')) {
+     // class matched with any of ones in pattern
+     // DoSomething($n);
+  }
+}
+```
 
 ## IdnaURL
 
