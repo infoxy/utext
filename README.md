@@ -11,6 +11,8 @@ Tiny set of PHP text utility classes.
 
   - [PlainFilter](#plainfilter): Plain text filter and corresponded utilities.
   - [HtmlBase](#htmlbase): Collection of static functions for DOMDocument manipulations.
+    - [String to DOM and back](#string-to-dom-and-back)
+    - [Class checking](#class-checking)
   - [IdnaURL](#idnaurl): International domain names normalization and humanization class.
 
 First two classes can be used as standalone, and latter based on its.
@@ -176,7 +178,7 @@ Collection of static functions for DOMDocument manipulation. So you do not need 
 
 Note: `toText()` and `toDom()` is focused on import/export in-body html tags, not for full documents with embedded scripts, styles and CDATA sections.
 
-### String to DOM and back conversions
+### String to DOM and back
 
 **HtmlBase::toDom($s)**
 Create HTML DOMDocument from string $s, that defines body content for created document.
