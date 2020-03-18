@@ -10,6 +10,7 @@ Tiny set of PHP text utility classes.
 **Class list (all classes placed in `\infoxy\utext namespace`):**
 
   - [PlainFilter](#plainfilter): Plain text filter and corresponded utilities.
+  - [HtmlBase](#htmlbase): Collection of static functions for DOMDocument manipulation.
   - [IdnaURL](#idnaurl): International domain names normalization and humanization class.
   - HtmliteFilter: (NOT RELEASED YET) DOM normalizer to simplified subset of HTML.
 
@@ -170,6 +171,26 @@ $opt = [
 $prepared_string = PlainFilter::escape_filter($input_string, $opt);
 ```
 
+
+## HtmlBase
+Collection of static functions for DOMDocument manipulation. So you do not need to create HtmlBase objects to use methods.
+Note: `toText()` and `toDom()` is focused on import/export in-body html tags, not for full documents with embedded scripts, styles and CDATA sections.
+
+**HtmlBase::toDom($s)**
+Create HTML DOMDocument from string $s, that defines body content for created document.
+Return DOMElement body for created document.
+
+**HtmlBase::toText($e)**
+Export content of DOMElement $e into the string.
+Return html as string.
+
+**HtmlBase::classCheck($s)**
+Check then string $s is acceptable as class list. 
+In current version it means that $s contain mixture of alphanumerics, '-', underscore and space.
+Return TRUE if check passed or FALSE in other case.
+
+
 ## IdnaURL
 
 ... in progress ...
+
