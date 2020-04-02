@@ -13,6 +13,7 @@ Tiny set of PHP text utility classes.
   - [HtmlBase](#htmlbase): Collection of static functions for DOMDocument manipulations.
     - [String to DOM and back](#string-to-dom-and-back)
     - [Class checking](#class-checking)
+    - [DOM elements manipulations](#dom-elements-manipulations)
   - [IdnaURL](#idnaurl): International domain names normalization and humanization class.
 
 First two classes can be used as standalone, and latter based on its.
@@ -30,7 +31,7 @@ As result in real life: many pieces of simple utf-8 text (in site's database for
   - with special spaces (spations, fixed-width spaces) that can be nice for printable papers, but really bad things then copypasted on the web pages; 
   - with special dashes, hyphens or other symbols that can be unreleased in the used fonts.
 
-This makes pieces of text harder to search and ugly to look. PlainFilter filter can be used to transform plain text in some more normalized and clean form (based on specified options) and also provide some additional services like tags stripper and pattern usage. See [PlainFilter](#plainfilter) section for details.
+This makes pieces of text harder to search and ugly to look. PlainFilter filter can be used to transform plain text to the some more normalized and clean form (based on specified options) and also provide some additional services like tags stripper and pattern usage. See [PlainFilter](#plainfilter) section for details.
 
 
 ## PlainFilter
@@ -80,7 +81,7 @@ Other cases falls to `en` in current release.
 
 Note 1: In this release lang_quotes just lookup to word boundaries, so some nested and spaced double quotes can be handled incorrectly. But even now this can be really helpful text authoring tool.
 
-Note 2: This only option that neded language-specific settings with `setLangId()`.
+Note 2: This only option that needed language-specific settings with `setLangId()`.
 
 Note 3: lang_quotes option can produce additional spaces around quotes when its needed by language rules.
 
@@ -214,6 +215,24 @@ foreach ($nodes as $n) {
   }
 }
 ```
+
+### DOM elements manipulations
+   
+**HtmlBase::tagStrip($e)**
+Strip tag (DOMElement) $e, reattach children to it's parent.
+Return (DOMNode) first reattached child 
+or NULL if no child or $e don't have parent.
+
+**HtmlBase::tagWrap($e, $tag)**
+Wrap (DOMElement) $e with new DOMElement with (string) $tag name.
+Return newly created DOMElement.
+
+**HtmlBase::tagReplace($e, $tag)**
+Replace (DOMElement) $e with new DOMElement with (string) $tag name
+and reattach children to it.
+id, class, lang, dir attributes are also copied to new element.
+Return newly created DOMElement
+
 
 ## IdnaURL
 
