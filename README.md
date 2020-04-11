@@ -209,7 +209,7 @@ $classes: array of class names or string of class names.
 ```
 $pat = HtmlBase::classPat('class1 class2 class3');
 foreach ($nodes as $n) {
-  if ($n->hasAttribute('class') && preg_match($pat, $n->getAttribute('class')) {
+  if ($n->hasAttribute('class') && preg_match($pat, $n->getAttribute('class'))) {
      // class matched with any of ones in pattern
      // DoSomething($n);
   }
