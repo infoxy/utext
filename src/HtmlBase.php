@@ -125,4 +125,23 @@ class HtmlBase {
       }
       return $r;
     }
+    /**
+     * Wrap element's children with specified tag 
+     * $e: DOMElement to wrap children
+     * $tag: (string) wrapper tag name
+     * Return: newly created DOMElement
+     */
+    static public function contentWrap($e, $tag)
+    {
+      $wrap = $e->ownerDocument->createElement($tag);
+      $wrap = $e->insertBefore($wrap, $e->firstChild);
+      $next = $wrap->nextSibling;
+      while ($next) {
+        $n = $next;
+        $next = $n->nextSibling;
+        $wrap->insertBefore($n);
+      }
+      return $wrap;
+    }
+    
 }
