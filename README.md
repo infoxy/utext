@@ -233,6 +233,10 @@ and reattach children to it.
 id, class, lang, dir attributes are also copied to new element.
 Return newly created DOMElement
 
+**HtmlBase::contentWrap($e,$tag)**
+Wrap (DOMElement)$e children with specified tag
+Return: newly created DOMElement
+
 
 ## IdnaURL
 
