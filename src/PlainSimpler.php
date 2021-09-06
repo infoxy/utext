@@ -31,7 +31,7 @@ class PlainSimpler {
    */
 //  public function __construct() { }
 
-  public function simplify($plain, $langid=''){
+  public static function simplify($plain, $langid=''){
     $pat = self::PAT_BASE;
     $rep = self::REP_BASE;
     if (in_array($langid, ['de', 'sv', 'no', 'nn', 'nb'])) {
