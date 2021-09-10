@@ -10,6 +10,7 @@ Tiny set of PHP text utility classes.
 **Class list (all classes placed in `\infoxy\utext namespace`):**
 
   - [PlainFilter](#plainfilter): Plain text filter and corresponded utilities.
+  - [PlainSimpler](#plainsimpler): Filter for simplify plain unicode text. 
   - [HtmlBase](#htmlbase): Collection of static functions for DOMDocument manipulations.
     - [String to DOM and back](#string-to-dom-and-back)
     - [Class checking](#class-checking)
@@ -173,6 +174,40 @@ $opt = [
 $prepared_string = PlainFilter::escape_filter($input_string, $opt);
 ```
 
+## PlainSimpler
+Unicode plain text simplifier.
+
+**PlainSimpler::simplify($s, $lang)**
+
+Simplify unicode plain text.
+Typically it is not what you want to expose to end users. 
+Simplified text can be used to improve search queries and string comparing.
+
+More deeply simplify() do:
+  - Decode html entities;
+  - Decomposite digraphs and ligatures by normalizing to NFKD
+  - Additional language-based decomposition for umlauts, AE, ets (latin based).
+  - Preserve some specific diacritic combinations (cyrillic 'Й').
+  - Remove all other diacritics.
+  - Finally, normalize to NFC.
+
+Note: PlainSimpler can be used as next stage after PlainFilter.
+
+### PlainSimpler example
+
+```
+use \infoxy\utext\PlainSimpler;
+
+...
+
+$src = "bœf (fr), el niño (es), клёвый (ru), regelmäßig (de), øjemål (da)";
+
+$simp_en = PlainSimpler::simplify($src, 'en'); 
+// Produce "boef (fr), el ninno (es), клевый (ru), regelmassig (de), oejemal (da)"
+
+$simp_de = PlainSimpler::simplify($src, 'de'); 
+// Produce "boef (fr), el ninno (es), клевый (ru), regelmaessig (de), oejemaal (da)"
+```
 
 ## HtmlBase
 Collection of static functions for DOMDocument manipulation. So you do not need to create HtmlBase objects to use methods.
