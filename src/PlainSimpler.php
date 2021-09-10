@@ -17,7 +17,7 @@ class PlainSimpler {
     'Й',       'й'
     ];
   
-  // Umlauts, Ao, O-slash replacements for  de,  sv,   no,nn,nb
+  // Umlauts, Ao, O-slash replacements for  de, sv, da, no,nn,nb
   protected const PAT_NORDIC = ["A\u{30A}","a\u{30A}","A\u{308}","a\u{308}","O\u{308}","o\u{308}","U\u{308}","u\u{308}"];
   protected const REP_NORDIC = ['Aa',      'aa',      'Ae',      'ae',      'Oe',      'oe',      'Ue',      'ue'];
 
@@ -34,7 +34,7 @@ class PlainSimpler {
   public static function simplify($plain, $langid=''){
     $pat = self::PAT_BASE;
     $rep = self::REP_BASE;
-    if (in_array($langid, ['de', 'sv', 'no', 'nn', 'nb'])) {
+    if (in_array($langid, ['de', 'sv', 'da', 'no', 'nn', 'nb'])) {
       $pat = array_merge($pat, self::PAT_NORDIC);
       $rep = array_merge($rep, self::REP_NORDIC);
     }
